@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vue Js - HelloWorld App</title>
+
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+</head>
+
+<body id="app" class="bg-gray-100">
+    <h1 class="flex fixed m-6 font-mono text-xs md:text-2xl bg-red-500 p-4 rounded-full text-white">Like ( {{ countLike }} )</h1>
+    <div class="p-4" v-for="(task,index) in tasks">
+        <div class="bg-white border rounded-sm max-w-md mx-auto">
+            <div class="flex items-center px-4 py-3">
+                <img class="h-8 w-8 rounded-full" v-bind:src="task.profile" />
+                <div class="ml-3 ">
+                    <span class="text-sm font-semibold antialiased block leading-tight">{{task.userName}}</span>
+                    <span class="text-gray-600 text-xs block">{{task.description}}</span>
+                </div>
+            </div>
+            <img v-bind:src="task.img" v-on:click="liked(index)" />
+            <div class="flex items-center justify-between mx-4 mt-3 mb-2 ">
+                <div class="flex gap-5">
+                    <i v-show="!task.heart" class="far fa-2x fa-heart text-black hover:text-red-600 transition duration-500" @click="liked(index)"></i>
+                    <i v-show="task.heart" class="fas fa-2x fa-heart text-red-500 transition duration-500" @click="liked(index)"></i>
+                    <div class="font-semibold text-sm mt-2 mb-4">likes</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <a href="https://unsplash.com/" class="flex justify-center p-4 text-gray-600 text-xs">photo by Unsplash</a>
+
+    <!-- my main.js -->
+    <script src="main.js"></script>
+</body>
+
+</html>
