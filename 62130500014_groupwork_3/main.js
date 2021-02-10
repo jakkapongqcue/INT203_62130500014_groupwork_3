@@ -2,6 +2,13 @@
         data() {
             return {
                 tasks: [{
+                        profile: 'images/profile.jpg',
+                        userName: 'Jakkapong Praditthanachot',
+                        description: 'preview',
+                        img: 'images/preview.jpg',
+                        heart: false,
+                    }, {
+
                         profile: 'https://images.unsplash.com/profile-1599498849251-35d2045d15d5image?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff',
                         userName: 'Daniele Colucci',
                         description: 'Wadi Rum Village, Giordania',
